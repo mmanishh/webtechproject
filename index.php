@@ -83,7 +83,7 @@ if($num>=0){
 
 // if there are no user
 else{
-    echo "<div> No User found. </div>";
+    echo "<div> No User found.  </div>";
     }
 ?>
 

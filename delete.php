@@ -2,10 +2,10 @@
 
 //set page headers
 $page_title = "Delete User";
-include_once "header.php";
 include_once 'classes/database.php';
 include_once 'classes/user.php';
 include_once 'initial.php';
+include_once "header.php";
 // get database connection
 
 $user = new User($db);

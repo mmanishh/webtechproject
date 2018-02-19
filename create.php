@@ -2,6 +2,9 @@
 
 // set page headers
 $page_title = "Create User";
+// get database connection
+include_once 'classes/database.php';
+include_once 'initial.php';
 include_once "header.php";
 
 // read user button
@@ -11,9 +14,7 @@ echo "<div class='right-button-margin'>";
     echo "</a>";
 echo "</div>";
 
-// get database connection
-include_once 'classes/database.php';
-include_once 'initial.php';
+
 
 
 // check if the form is submitted

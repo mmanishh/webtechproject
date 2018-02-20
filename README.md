@@ -80,7 +80,7 @@ class Database
 }
 
 ```
-###Basic CRUD Functions
+### Basic CRUD Functions
 
 1. Create
 2. Read

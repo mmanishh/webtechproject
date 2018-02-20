@@ -19,7 +19,7 @@ class Category
     function getAll()
     {
         //select all data
-        $sql = "SELECT id, name FROM " . $this->table_name . "  ORDER BY name";
+        $sql = "SELECT id, name FROM " . $this->table_name . "  ORDER BY id";
 
         $prep_state = $this->db_conn->prepare($sql);
         $prep_state->execute();

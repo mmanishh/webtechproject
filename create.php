@@ -107,7 +107,7 @@ if ($_POST){
             <td></td>
             <td>
                 <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-plus"></span> Create
+                    <span class="glyphicon glyphicon-plus"></span> Add Student
                 </button>
             </td>
         </tr>

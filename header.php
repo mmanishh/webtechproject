@@ -52,7 +52,7 @@ error_reporting(E_ALL); // report all php errors
                 echo "<nav class=\"navbar navbar-inverse\">";
                 echo "<div class=\"container-fluid\">";
                 echo "<div class=\"navbar-header\">";
-                echo "<a class=\"navbar-brand\" href=\"#\">Students Hub</a>";
+                echo "<a class=\"navbar-brand\" href=\"index.php\">Students Hub</a>";
                 echo "</div>";
                 echo "<ul class=\"nav navbar-nav\">";
 

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 ```
-As categories, I will take „Students“, „Pensioners“, „Employees“ and „Unemployed“  in the example.
+As categories, I will take different Semester
 
 ```mysql
 CREATE TABLE IF NOT EXISTS `categories` (

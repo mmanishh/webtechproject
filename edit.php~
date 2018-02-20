@@ -1,10 +1,6 @@
 <?php
 // set page headers
 $page_title = "Edit User";
-// include database and object user file
-include_once 'classes/database.php';
-include_once 'classes/user.php';
-include_once 'initial.php';
 include_once "header.php";
 
 // read user button
@@ -17,7 +13,10 @@ echo "</div>";
 // isset() is a PHP function used to verify if ID is there or not
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR! ID not found!');
 
-
+// include database and object user file
+include_once 'classes/database.php';
+include_once 'classes/user.php';
+include_once 'initial.php';
 
 // instantiate user object
 $user = new User($db);

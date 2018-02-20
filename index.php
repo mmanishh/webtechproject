@@ -16,13 +16,13 @@ $user = new User($db);
 $category = new Category($db);
 
 // include header file
-$page_title = "Stduents List";
+$page_title = "Students List";
 include_once "header.php";
 
 // create user button
 echo "<div class='right-button-margin'>";
 echo "<a href='create.php' class='btn btn-primary pull-right'>";
-echo "<span class='glyphicon glyphicon-plus'></span> Create User";
+echo "<span class='glyphicon glyphicon-plus'></span> Add student";
 echo "</a>";
 echo "</div>";
 

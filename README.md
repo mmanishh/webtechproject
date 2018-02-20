@@ -60,7 +60,7 @@ class Database
 
     // used to connect to the database
     private $host = "localhost";
-    private $db_name = "oopcrudproject";
+    private $db_name = "YOUR_DATABASE_NAME(REPLACE WITH YOUR DB NAME)";
     private $username = "root";
     private $password = "";
     public $db_conn;

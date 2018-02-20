@@ -1,7 +1,7 @@
 <?php
 
 // set page headers
-$page_title = "Create User";
+$page_title = "Add Students";
 // get database connection
 include_once 'classes/database.php';
 include_once 'initial.php';
@@ -80,7 +80,7 @@ if ($_POST){
         </tr>
 
         <tr>
-            <td>Category</td>
+            <td>Semester</td>
             <td>
                 <?php
                     // choose user categories

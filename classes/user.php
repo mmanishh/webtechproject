@@ -95,7 +95,7 @@ class User
 
     function getAllUsers($from_record_num, $records_per_page)
     {
-        $sql = "SELECT id, firstname, lastname, email, mobile, category_id FROM " . $this->table_name . " ORDER BY firstname ASC LIMIT ?, ?";
+        $sql = "SELECT id, firstname, lastname, email, mobile, category_id FROM " . $this->table_name . " ORDER BY category_id ASC LIMIT ?, ?";
 
 
         $prep_state = $this->db_conn->prepare($sql);

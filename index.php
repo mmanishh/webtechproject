@@ -16,7 +16,7 @@ $user = new User($db);
 $category = new Category($db);
 
 // include header file
-$page_title = "Users";
+$page_title = "Stduents List";
 include_once "header.php";
 
 // create user button
@@ -39,7 +39,7 @@ if($num>=0){
     echo "<th>Last Name</th>";
     echo "<th>E-Mail</th>";
     echo "<th>Mobile</th>";
-    echo "<th>Category</th>";
+    echo "<th>Semester</th>";
     echo "<th>Actions</th>";
     echo "</tr>";
 

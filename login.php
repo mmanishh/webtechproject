@@ -1,29 +1,30 @@
-<?php session_start(); ?>
-<html>
-<head>
-	<title>Login</title>
-</head>
+<?php session_start(); 
 
-<body>
-<a href="index.php">Home</a> <br />
-<?php
-include("connection.php");
+//include database and object files
+include_once 'classes/database.php';
+include_once 'classes/admin.php';
+include_once 'initial.php';
+
+
+
+
+
+$admin = new Admin($db);
+$page_title="Login";
+include_once 'header.php';
 
 if(isset($_POST['submit'])) {
-	$user = mysqli_real_escape_string($mysqli, $_POST['username']);
-	$pass = mysqli_real_escape_string($mysqli, $_POST['password']);
+	$user =  $_POST['username'];
+	$pass =  $_POST['password'];
 
 	if($user == "" || $pass == "") {
 		echo "Either username or password field is empty.";
 		echo "<br/>";
 		echo "<a href='login.php'>Go back</a>";
 	} else {
-		$result = mysqli_query($mysqli, "SELECT * FROM login WHERE username='$user' AND password=md5('$pass')")
-					or die("Could not execute the select query.");
 		
-		$row = mysqli_fetch_assoc($result);
 		
-		if(is_array($row) && !empty($row)) {
+		if($admin->login($user,$pass)) {
 			$validuser = $row['username'];
 			$_SESSION['valid'] = $validuser;
 			$_SESSION['name'] = $row['name'];
@@ -39,8 +40,11 @@ if(isset($_POST['submit'])) {
 		}
 	}
 } else {
+
+	echo 'not submitted';
+}
 ?>
-	<p><font size="+2">Login</font></p>
+	<!-- <p><font size="+2">Login</font></p>
 	<form name="form1" method="post" action="">
 		<table width="75%" border="0">
 			<tr> 
@@ -55,10 +59,33 @@ if(isset($_POST['submit'])) {
 				<td>&nbsp;</td>
 				<td><input type="submit" name="submit" value="Submit"></td>
 			</tr>
-		</table>
+		</table> -->
+	<form name="login_form" method="post" action="">
+	<table class='table table-hover table-responsive table-bordered'>
+
+        <tr>
+            <td>Username</td>
+            <td><input type='text' name='username'  class='form-control' placeholder="Username" required></td>
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td><input type='password' name='password' class='form-control' placeholder="Password" required></td>
+        </tr>
+
+        
+  
+
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-primary" name="submit">
+                    <span class="glyphicon">Login</span>
+                </button>
+            </td>
+        </tr>
+
+    </table>
 	</form>
-<?php
-}
-?>
 </body>
 </html>

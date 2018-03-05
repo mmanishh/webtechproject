@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+
 
 // set page headers
 $page_title = "Add Students";
@@ -15,6 +16,10 @@ echo "<div class='right-button-margin'>";
 echo "</div>";
 
 
+if(!isset($_SESSION['valid']))
+{           
+     header('Location: login.php');  
+}
 
 
 // check if the form is submitted

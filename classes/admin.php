@@ -22,21 +22,27 @@ class Admin
 
     function login($user,$pass)
     {
-		
-			$result = mysqli_query($mysqli, "SELECT * FROM login WHERE username='$user' AND password=md5('$pass')")
+			$sql ="SELECT * FROM login WHERE username='$user' AND password=md5('$pass')";
+
+        	$prep_state = $this->db_conn->prepare($sql);
+        	$prep_state->execute();
+
+        	$row =$prep_state->fetch(PDO::FETCH_ASSOC);
+
+			/*$result = mysqli_query($db_conn, "SELECT * FROM login WHERE username='$user' AND password=md5('$pass')")
 					or die("Could not execute the select query.");
 		
 			$row = mysqli_fetch_assoc($result);
-		
+		*/
 			if(is_array($row) && !empty($row)) {
 				$validuser = $row['username'];
 				$_SESSION['valid'] = $validuser;
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['id'] = $row['id'];
+
+				return true;
 			} else {
-				echo "Invalid username or password.";
-				echo "<br/>";
-				echo "<a href='login.php'>Go back</a>";
+				return false;
 			}
 
 			if(isset($_SESSION['valid'])) {
@@ -44,6 +50,8 @@ class Admin
 			}
 		
     }
+
+}
 
 
     

@@ -24,25 +24,23 @@ if(isset($_POST['submit'])) {
 	} else {
 		
 		
-		if($admin->login($user,$pass)) {
-			$validuser = $row['username'];
-			$_SESSION['valid'] = $validuser;
-			$_SESSION['name'] = $row['name'];
-			$_SESSION['id'] = $row['id'];
-		} else {
-			echo "Invalid username or password.";
-			echo "<br/>";
-			echo "<a href='login.php'>Go back</a>";
+		if(!$admin->login($user,$pass)) {
+			echo "<div class=\"alert alert-danger alert-dismissable\">";
+            echo "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">
+                        &times;
+                  </button>";
+            echo "Username and password mismatch.";
+        	echo "</div>";
+			
+		}else{
+			header('Location: home.php');	
 		}
 
-		if(isset($_SESSION['valid'])) {
-			header('Location: index.php');			
-		}
+	
 	}
-} else {
+} 
 
-	echo 'not submitted';
-}
+
 ?>
 	<!-- <p><font size="+2">Login</font></p>
 	<form name="form1" method="post" action="">
@@ -82,7 +80,10 @@ if(isset($_POST['submit'])) {
                 <button type="submit" class="btn btn-primary" name="submit">
                     <span class="glyphicon">Login</span>
                 </button>
+
+                <a href='register.php' class='btn btn-primary pull-right'>Register</a>
             </td>
+
         </tr>
 
     </table>

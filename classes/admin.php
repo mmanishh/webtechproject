@@ -45,10 +45,30 @@ class Admin
 				return false;
 			}
 
-			if(isset($_SESSION['valid'])) {
-				header('Location: index.php');			
-			}
+	
 		
+    }
+
+    function create($name,$email,$user,$pass)
+    {
+        //write query
+       $sql = "INSERT INTO " . $this->table_name . " SET name = ?, email = ?, username = ?, password = ?";
+
+       $encrypt_passs = md5($pass);
+
+        $prep_state = $this->db_conn->prepare($sql);
+
+        $prep_state->bindParam(1, $name);
+        $prep_state->bindParam(2, $email);
+        $prep_state->bindParam(3, $user);
+        $prep_state->bindParam(4, $encrypt_passs);
+
+        if ($prep_state->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
